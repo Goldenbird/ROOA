@@ -397,7 +397,22 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	</tbody>
 </table>
 </div>
-
+<script>
+	function viewUser(id)
+	{
+		var url = 'users_view.php?user='+id;
+		var ajax = new XMLHttpRequest;
+		ajax.open("GET", url, true);
+		ajax.onreadystatechange = function(){
+			if(ajax.status == 200)
+			{
+				document.getElementById("ramtin").innerHTML = ajax.responseText;
+			};
+		}
+				
+		ajax.send();
+	}
+</script>
 <!-- BEGIN CORE PLUGINS -->   
 	<!--[if lt IE 9]>
 	<script src="assets/plugins/respond.min.js"></script>
